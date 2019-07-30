@@ -5,6 +5,7 @@ deverá ser selecionado a regiao com objetos clicando e arrastando de cima para 
 deve ser pressionado a tecla 's' para cada região definida, e 'n' para ir para a proxima imagem
 se existirem mais de um objeto de interesse dentro da imagem selecione e pressione 's' mais de uma vez.
 Quando um arquivo uma imagem for processada ela eh movida para a pasta done/
+pode-se pressionar esc para para encerrar o programa salvando o progresso atual
 '''
 
 
