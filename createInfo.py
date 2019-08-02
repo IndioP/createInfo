@@ -9,7 +9,7 @@ pode-se pressionar esc para para encerrar o programa salvando o progresso atual
 '''
 
 
-import commands
+import subprocess
 import cv2
 
 positivos = "cars.info"
@@ -17,9 +17,9 @@ negativos = "bg.txt"
 
 option = "w"
 
-commands.getoutput("mkdir done")
+subprocess.call("mkdir done",shell = True)
 
-files = commands.getoutput("ls")
+files = returned_value = subprocess.check_output("ls")
 files = files.split()
 for fi in files:
 	if(fi == positivos):
@@ -63,7 +63,7 @@ cv2.namedWindow("image")
 cv2.setMouseCallback("image", click_and_crop)
 
 
-files = commands.getoutput("ls positive/")
+files = returned_value = subprocess.check_output("ls positive/",shell = True)
 files = files.split()
 for fi in files:
 	if stop_condition:
@@ -75,7 +75,7 @@ for fi in files:
 		key = cv2.waitKey(1)
 		if key == ord("n"): #press 'n' to go to the next positive picture
 			f.write("done/" + fi+ " " + str(count)+crops+"\n")
-			commands.getoutput("mv positive/"+fi+" done/")
+			subprocess.call("mv positive/"+fi+" done/",shell = True)
 			crops = " "
 			count = 0
 			break
@@ -89,7 +89,7 @@ for fi in files:
 			break
 f.close()
 
-files = commands.getoutput("ls negative/")
+files = returned_value = subprocess.check_output("ls negative/", shell = True)
 files = files.split()
 for fi in files:
 	f2.write("negative/"+fi+"\n")
